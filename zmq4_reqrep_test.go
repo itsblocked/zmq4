@@ -31,6 +31,7 @@ var (
 		},
 		{
 			name:     "inproc-req-rep",
+			skip:     true,
 			endpoint: "inproc://inproc-req-rep",
 			req:      zmq4.NewReq(bkg),
 			rep:      zmq4.NewRep(bkg),

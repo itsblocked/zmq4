@@ -31,6 +31,7 @@ var (
 		},
 		{
 			name:     "inproc-push-pull",
+			skip:     true,
 			endpoint: "inproc://push-pull",
 			push:     zmq4.NewPush(bkg),
 			pull:     zmq4.NewPull(bkg),

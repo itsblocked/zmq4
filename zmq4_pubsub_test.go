@@ -36,6 +36,7 @@ var (
 		},
 		{
 			name:     "inproc-pub-sub",
+			skip:     true,
 			endpoint: "inproc://inproc-pub-sub",
 			pub:      zmq4.NewPub(bkg),
 			sub0:     zmq4.NewSub(bkg, zmq4.WithID(zmq4.SocketIdentity("sub0"))),
