@@ -49,6 +49,7 @@ var (
 type testCasePubSub struct {
 	name     string
 	skip     bool
+	parallel bool
 	endpoint string
 	pub      zmq4.Socket
 	sub0     zmq4.Socket
@@ -81,7 +82,9 @@ func TestPubSub(t *testing.T) {
 			if tc.skip {
 				t.Skipf(tc.name)
 			}
-			t.Parallel()
+			if tc.parallel {
+				t.Parallel()
+			}
 
 			ep := tc.endpoint
 			cleanUp(ep)

@@ -76,6 +76,7 @@ var (
 type testCaseRouterDealer struct {
 	name     string
 	skip     bool
+	parallel bool
 	endpoint func() string
 	router   func(context.Context) zmq4.Socket
 	dealer0  func(context.Context) zmq4.Socket
@@ -97,7 +98,10 @@ func TestRouterDealer(t *testing.T) {
 			if tc.skip {
 				t.Skipf(tc.name)
 			}
-			t.Parallel()
+			if tc.parallel {
+				t.Parallel()
+			}
+
 			ep := tc.endpoint()
 			cleanUp(ep)
 

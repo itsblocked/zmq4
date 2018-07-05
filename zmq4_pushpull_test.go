@@ -42,6 +42,7 @@ var (
 type testCasePushPull struct {
 	name     string
 	skip     bool
+	parallel bool
 	endpoint string
 	push     zmq4.Socket
 	pull     zmq4.Socket
@@ -62,7 +63,9 @@ func TestPushPull(t *testing.T) {
 			if tc.skip {
 				t.Skipf(tc.name)
 			}
-			t.Parallel()
+			if tc.parallel {
+				t.Parallel()
+			}
 
 			ep := tc.endpoint
 			cleanUp(ep)
