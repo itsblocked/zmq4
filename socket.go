@@ -12,7 +12,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/go-zeromq/zmq4/internal/inproc"
+	//"github.com/go-zeromq/zmq4/internal/inproc"
+	"github.com/itsblocked/zmq4/internal/inproc"
 	"github.com/pkg/errors"
 )
 
